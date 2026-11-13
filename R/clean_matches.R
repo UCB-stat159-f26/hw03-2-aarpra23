@@ -32,3 +32,12 @@ compute_opponent_age = function(match_date, opponent_info) {
     age_given = suppressWarnings(as.numeric(opponent_info))
     ifelse(is_dob, age_from_dob, age_given)
 }
+
+# Add player and opponent ages, and the age gap (positive = player is older)
+
+add_age_columns = function(matches, player_dob) {
+    matches$opponent_age = compute_opponent_age(matches$date, matches$opponent_info)
+    matches$player_age = as.numeric(matches$date - player_dob) / 365.25
+    matches$age_diff = matches$player_age - matches$opponent_age
+    matches
+} 
