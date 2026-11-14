@@ -17,8 +17,8 @@ read_career_js = function(url, player_name) {
 # @return A list with one character vector per match.
 
 extract_match_array = function(js_text) {
-    array_text = sub("^[^\\[]*", "", js_text)
-    array_text = sub("[^\\]]*$", "", array_text)
-    match_rows = jsonlite::fromJSON(array_text, simplifyVector = FALSE)
+    start = regexpr("[", js_text, fixed = TRUE)
+    end = max(gregexpr("]", js_text, fixed = TRUE)[[1]])
+    match_rows = jsonlite::fromJSON(substr(js_text, start, end), simplifyVector = FALSE)
     lapply(match_rows, unlist)
 }
