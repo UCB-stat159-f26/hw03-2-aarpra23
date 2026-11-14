@@ -16,6 +16,8 @@ get_career_matches = function(player_name) {
     player_id = format_player_name(player_name)
     js_text = read_career_js(build_career_url(player_id), player_name)
     matches = rows_to_df(extract_match_array(js_text))
+    player_dob = read_player_dob(player_id, is_female(matches$opponent_info))
+    matches = add_age_columns(matches, player_dob)
     matches$outcome = factor(matches$result, levels = c("W", "L"), labels = c("Won", "Lost"))
     matches$player = gsub("([a-z])([A-Z])", "\\1 \\2", player_id)
     matches
