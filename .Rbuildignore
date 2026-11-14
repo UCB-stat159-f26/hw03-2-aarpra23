@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 ^README\.md$
 ^instructions\.md$
+^Untitled\.ipynb$
+^\.ipynb_checkpoints$
