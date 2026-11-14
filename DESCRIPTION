@@ -2,7 +2,7 @@ Package: tennisages
 Title: Career Matches and Age Gaps of Tennis Players
 Version: 0.1.0
 Authors@R: 
-    person("Aarya", "Pradhan", role = c("aut", "cre"))
+    person("Aarya", "Pradhan", email = "apradhan23@berkeley.edu", role = c("aut", "cre"))
 Description: Downloads a player's career match data from tennisabstract.com,
     cleans it into a data frame of player and opponent ages, and plots each
     match by the player's age and the age gap with the opponent.
